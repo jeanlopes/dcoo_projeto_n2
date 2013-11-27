@@ -1,18 +1,11 @@
 package com.qieventos.dao;
 
-import com.qieventos.models.AbstractBO;
 
-
-
-public class AbstractRecursoStrategy {
+public abstract class AbstractRecursoStrategy {
  
-	public void create(AbstractBO recurso) {
+	public abstract int create(Object recurso);
 	 
-	}
-	 
-	public void update() {
-	 
-	}
+	public abstract int update(Object recurso);
 	 
 }
  

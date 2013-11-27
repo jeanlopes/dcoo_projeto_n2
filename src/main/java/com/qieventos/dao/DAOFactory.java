@@ -1,26 +1,27 @@
 package com.qieventos.dao;
 
-import com.qieventos.persistence.Connection;
-
 public class DAOFactory {
  
-	public String RECURSO;
-	 
-	public String EVENTO;
-	 
-	public String AGENDA;
-	 
-	public String TIPOEVENTO;
-	 
-	private Connection connection;
+	public final char RECURSO = 'R';
+	public final char EVENTO = 'E';
+	public final char AGENDA = 'A';
+	public final char TIPOEVENTO = 'T';
 	 
 	 
-	public DAO getDAO(String dao) {
-		return null;
-	}
-	 
-	public DAOFactory(Connection conn) {
-	 
+	public DAO getDAO(char dao) throws Exception {
+		
+		switch (dao) {
+		case RECURSO:
+			return new RecursoDAO();
+		case EVENTO:
+			return new EventoDAO();
+		case AGENDA:
+			return new AgendaDAO();
+		case TIPOEVENTO:
+			return new TipoEventoDAO();
+		default:
+			throw new Exception("camada de acesso a dados não existente");
+		}
 	}
 	 
 }
